@@ -20,6 +20,7 @@ pipeline {
             		unstash 'jar'
             		sh 'docker build -f Dockerfile.pipe -t iot-kafka-pipe .'
             		sh 'docker build -f Dockerfile.consumer -t iot-kafka-consumer .'
+            		sh 'docker build -f Dockerfile.alert -t iot-kafka-alert .'
             }
         }
     }

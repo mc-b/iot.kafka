@@ -90,6 +90,21 @@
 							</archive>
 						</configuration>
 					</execution>
+					<execution>
+						<id>alert</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>alert-service-${project.version}</finalName>
+							<archive>
+								<manifest>
+									<mainClass>ch.mc_b.iot.kafka.AlertConsumer</mainClass>
+								</manifest>
+							</archive>
+						</configuration>
+					</execution>					
 				</executions>
 			</plugin>
 		</plugins>
@@ -159,6 +174,16 @@
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-streams</artifactId>
 			<version>${kafka.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.27</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.27</version>
 		</dependency>
 	</dependencies>
 </project>
