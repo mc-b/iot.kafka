@@ -1,0 +1,8 @@
+FROM java:8
+
+LABEL "maintainer"="Marcel Bernet <marcel.bernet@ch-open.ch"
+LABEL description="CSV to JSON"
+
+COPY target/pipe-service-0.1-jar-with-dependencies.jar /opt/pipe-service.jar
+
+CMD java -jar /opt/pipe-service.jar

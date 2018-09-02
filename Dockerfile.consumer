@@ -1,0 +1,8 @@
+FROM java:8
+
+LABEL "maintainer"="Marcel Bernet <marcel.bernet@ch-open.ch"
+LABEL description="IoT Consumer"
+
+COPY target/consumer-service-0.1-jar-with-dependencies.jar /opt/consumer-service.jar
+
+CMD java -jar /opt/consumer-service.jar
