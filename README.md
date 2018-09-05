@@ -14,10 +14,14 @@ Im gestarteten Maven Container:
 	cd /src
 	git clone https://github.com/mc-b/iot.kafka
 	mvn clean package
-	docker build -f Dockerfile.pipe -t iot-kafka-pipe .
-	docker build -f Dockerfile.consumer -t iot-kafka-consumer .
-	docker build -f Dockerfile.alert -t iot-kafka-alert .
 	exit
+	
+Auf der Git/Bash (ausserhalb des Containers)
+
+	cd data/src/iot.kafka	
+	docker build -f Dockerfile.pipe -t misegr/iot-kafka-pipe .
+	docker build -f Dockerfile.consumer -t misegr/iot-kafka-consumer .
+	docker build -f Dockerfile.alert -t misegr/iot-kafka-alert .
 	
 Auf das [IoTKit](https://github.com/mc-b/iotkitv3) ist das [MQTTPublish](https://os.mbed.com/teams/IoTKitV3/code/MQTTPublish/) Programm zu laden. Vor dem Compilieren sind die Einträge `host` und ggf. `port` anzupassen. Der `host` entspricht der IP-Adresse der VM die mittels [lernkube](https://github.com/mc-b/lernkube) erstellt wurde.
 	

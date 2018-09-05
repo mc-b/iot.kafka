@@ -16,5 +16,5 @@ spec:
     spec:
       containers:        
       - name: iot-kafka-pipe
-        image: iot-kafka-pipe
+        image: misegr/iot-kafka-pipe
         imagePullPolicy: IfNotPresent        

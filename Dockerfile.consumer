@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8-jre-alpine
 
 LABEL "maintainer"="Marcel Bernet <marcel.bernet@ch-open.ch"
 LABEL description="IoT Consumer"

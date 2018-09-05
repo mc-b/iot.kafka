@@ -16,5 +16,5 @@ spec:
     spec:
       containers:        
       - name: iot-kafka-consumer
-        image: iot-kafka-consumer
+        image: misegr/iot-kafka-consumer
         imagePullPolicy: IfNotPresent        

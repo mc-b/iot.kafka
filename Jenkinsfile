@@ -18,9 +18,9 @@ pipeline {
         	agent any
             steps {
             		unstash 'jar'
-            		sh 'docker build -f Dockerfile.pipe -t iot-kafka-pipe .'
-            		sh 'docker build -f Dockerfile.consumer -t iot-kafka-consumer .'
-            		sh 'docker build -f Dockerfile.alert -t iot-kafka-alert .'
+            		sh 'docker build -f Dockerfile.pipe -t misegr/iot-kafka-pipe .'
+            		sh 'docker build -f Dockerfile.consumer -t misegr/iot-kafka-consumer .'
+            		sh 'docker build -f Dockerfile.alert -t misegr/iot-kafka-alert .'
             }
         }
     }
