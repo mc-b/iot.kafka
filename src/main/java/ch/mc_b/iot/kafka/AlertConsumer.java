@@ -31,6 +31,7 @@ public class AlertConsumer
 {
     private static final String REST_URI = "http://camunda:8080/engine-rest/process-definition/key/"; // <prozess>/start
     private static Client client = ClientBuilder.newClient();
+    private static int counter = 1;
   
     public static void main(String[] args) throws Exception
     {
@@ -54,17 +55,16 @@ public class AlertConsumer
                 String value = record.value();
                 if ( value != null && value.startsWith( "alert" ) )
                 {
-                    String text =  "{ \"variables\": { \"rnr\": {\"value\": " + 123 + ", \"type\": \"long\"}, " + 
+                    String text =  "{ \"variables\": { \"rnr\": {\"value\": " + counter++ + ", \"type\": \"long\"}, " + 
                                     "\"rbetrag\": {\"value\": " + 100.0 + ", \"type\": \"String\"} } }";
                     System.out.printf( "offset = %d, value = %s%n", offset, record.value() );
                     Response rc = client.target( REST_URI )
                                     .path( "RechnungStep3/start" )
-                                    .request(MediaType.TEXT_PLAIN)
-                                    .post(Entity.entity( text , MediaType.TEXT_PLAIN ) );
+                                    .request(MediaType.APPLICATION_JSON)
+                                    .post(Entity.entity( text , MediaType.APPLICATION_JSON ) );
                     System.out.println( rc.getStatus() );
                 }
             }
         }
     }
-
 }
