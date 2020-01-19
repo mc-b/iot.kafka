@@ -28,7 +28,7 @@ public class CSVConsumer
     public static void main(String[] args) throws Exception
     {
         Properties props = new Properties();
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");        
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");        
         props.put( "group.id", "iot" );
         props.put( "enable.auto.commit", "true" );
         props.put( "auto.commit.interval.ms", "1000" );
