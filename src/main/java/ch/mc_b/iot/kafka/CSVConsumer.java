@@ -10,6 +10,7 @@
 
 package ch.mc_b.iot.kafka;
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -27,7 +28,7 @@ public class CSVConsumer
     public static void main(String[] args) throws Exception
     {
         Properties props = new Properties();
-        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");        
+        props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");        
         props.put( "group.id", "iot" );
         props.put( "enable.auto.commit", "true" );
         props.put( "auto.commit.interval.ms", "1000" );
@@ -36,7 +37,8 @@ public class CSVConsumer
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>( props );
         consumer.subscribe( Arrays.asList( "broker_message" ) );
         
-        System.out.println( "CVSProducer" );
+        System.out.println( "CSVProducer" );
+        PrintWriter writer = new PrintWriter("ml-data.csv");
         while (true)
         {
             ConsumerRecords<String, String> records = consumer.poll( 100 );
@@ -45,8 +47,13 @@ public class CSVConsumer
                 long offset = record.offset();
                 String value = record.value();
                 if  ( value != null && value.startsWith( "0x") )
+                {
                     System.out.printf( "offset = %d, value = %s%n", offset, record.value() );
+                    writer.printf( "%s%n", record.value() );
+                }
             }
         }
+        //writer.close();
+        //consumer.close();
     }
 }
