@@ -5,4 +5,8 @@ LABEL description="IoT Consumer"
 
 COPY target/consumer-service-0.1-jar-with-dependencies.jar /opt/consumer-service.jar
 
+# Datenverzeichnis
+RUN mkdir /data
+WORKDIR /data
+
 CMD java -jar /opt/consumer-service.jar

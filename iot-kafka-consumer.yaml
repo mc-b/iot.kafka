@@ -18,3 +18,13 @@ spec:
       - name: iot-kafka-consumer
         image: misegr/iot-kafka-consumer
         imagePullPolicy: IfNotPresent        
+        # Volumes im Container
+        volumeMounts:
+        - mountPath: "/data"
+          subPath: mlg
+          name: "mlg-data"
+      # Volumes in Host
+      volumes:
+      - name: "mlg-data"
+        persistentVolumeClaim:
+         claimName: data-claim
