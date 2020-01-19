@@ -50,6 +50,7 @@ public class CSVConsumer
                 {
                     System.out.printf( "offset = %d, value = %s%n", offset, record.value() );
                     writer.printf( "%s%n", record.value() );
+                    writer.flush();
                 }
             }
         }
