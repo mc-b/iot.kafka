@@ -16,7 +16,7 @@ spec:
     spec:
       containers:        
       - name: iot-kafka-consumer
-        image: misegr/iot-kafka-consumer
+        image: registry.gitlab.com/mc-b/iot-kafka/iot-kafka-consumer
         imagePullPolicy: IfNotPresent        
         # Volumes im Container
         volumeMounts:

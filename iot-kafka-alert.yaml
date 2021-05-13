@@ -16,5 +16,5 @@ spec:
     spec:
       containers:        
       - name: iot-kafka-alert
-        image: misegr/iot-kafka-alert
+        image: registry.gitlab.com/mc-b/iot-kafka/iot-kafka-alert
         imagePullPolicy: IfNotPresent        
