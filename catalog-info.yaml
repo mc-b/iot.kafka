@@ -21,4 +21,4 @@ spec:
   lifecycle: deprecated
   owner: group:mc-b/mc-b
   dependsOn:
-  - component:mc-b/iotkit
+  - component:mc-b/IoTKit
