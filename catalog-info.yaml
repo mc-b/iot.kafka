@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: iot-kafka
+  namespace: mc-b
+  description: Internet der Dinge Kit - Kafka Anbindung in Java
+  tags:
+  - iot
+  - iotkit
+  - java
+  links:
+  - url: https://github.com/mc-b/iot.kafka
+    title: Repository
+    icon: github
+  annotations:
+    github.com/project-slug: mc-b/IoTKit
+    backstage.io/source-location: url:https://github.com/mc-b/iot.kafka
+    # backstage.io/techdocs-ref: url:https://github.com/mc-b/iot.kafka
+spec:
+  type: library
+  lifecycle: deprecated
+  owner: group:mc-b/mc-b
+  dependsOn:
+  - component:mc-b/iotkit
