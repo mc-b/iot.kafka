@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Resource
 metadata:
   name: iot-kafka
   namespace: mc-b
@@ -20,5 +20,4 @@ spec:
   type: library
   lifecycle: deprecated
   owner: group:mc-b/mc-b
-  dependsOn:
-  - component:mc-b/IoTKit
+  dependencyOf: component:mc-b/IoTKit
